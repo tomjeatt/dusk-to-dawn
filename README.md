@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## What this app does
+## What this app does
 
 1. Connects to Google Places to allow a user to type a location
 2. Takes the location and returns geo data
