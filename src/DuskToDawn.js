@@ -1,31 +1,45 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import GoogleMapsLoader from "./utilities/google-maps-loader";
 
 class DuskToDawn extends Component {
-  state = {
-    google: undefined
-  };
-
-  initialiseApi = () => {
+  initialisePlacesApi = () => {
     GoogleMapsLoader.load(google => {
-      const service = new google.maps.places.AutocompleteService();
-      console.log(service);
+      const options = {
+        componentRestrictions: { country: ["gb"] },
+        types: ["geocode"]
+      };
+
+      const autocomplete = new google.maps.places.Autocomplete(
+        this.autocompleteField
+      );
+      autocomplete.setOptions(options);
     });
   };
 
   componentDidMount() {
-    this.initialiseApi();
+    this.initialisePlacesApi();
   }
 
   render() {
     return (
       <div className="DuskToDawn">
-        <header>
-          <h1>Dusk to dawn</h1>
-        </header>
+        <label htmlFor="autoComplete">Autocomplete</label>
+        <input
+          className="autocomplete"
+          placeholder="type a thing yeah?"
+          name="autocomplete"
+          type="text"
+          ref={ref => (this.autocompleteField = ref)}
+        />
       </div>
     );
   }
 }
+
+DuskToDawn.propTypes = {
+  autocomplete: PropTypes.object,
+  false: PropTypes.bool
+};
 
 export default DuskToDawn;
