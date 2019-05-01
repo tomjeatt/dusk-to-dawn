@@ -14,6 +14,23 @@ class DuskToDawn extends Component {
         this.autocompleteField
       );
       autocomplete.setOptions(options);
+      autocomplete.setFields(["geometry"]);
+
+      autocomplete.addListener("place_changed", () => {
+        const place = autocomplete.getPlace();
+        const {
+          geometry: {
+            location: { lat, lng }
+          }
+        } = place;
+
+        this.setState({
+          requestGeo: {
+            lat: lat(),
+            lng: lng()
+          }
+        });
+      });
     });
   };
 
@@ -38,8 +55,7 @@ class DuskToDawn extends Component {
 }
 
 DuskToDawn.propTypes = {
-  autocomplete: PropTypes.object,
-  false: PropTypes.bool
+  requestGeo: PropTypes.object
 };
 
 export default DuskToDawn;
