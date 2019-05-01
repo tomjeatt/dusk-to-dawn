@@ -1,5 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import DuskToDawn from './DuskToDawn';
+import React from "react";
+import ReactDOM from "react-dom";
+import DuskToDawn from "./DuskToDawn";
 
-ReactDOM.render(<DuskToDawn />, document.getElementById('root'));
+const apiBaseUrl = "https://api.sunrise-sunset.org/json";
+
+ReactDOM.render(
+  <DuskToDawn apiBaseUrl={apiBaseUrl} />,
+  document.getElementById("root")
+);

@@ -1,19 +1,39 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import GoogleMapsLoader from "./utilities/google-maps-loader";
+import fetchData from "./utilities/fetch-data";
 
 class DuskToDawn extends Component {
-  // If no value is passed property and value are set from property
-  updateState = (property, value) => {
-    this.setState(prevState => ({
-      ...prevState,
-      [property]: value
-    }));
+  fetchApiData = async () => {
+    const { apiBaseUrl } = this.props;
+
+    const {
+      userGeo: { lat, lng }
+    } = this.state;
+
+    const apiUrl = `${apiBaseUrl}?lat=${lat}&lng=${lng}`;
+
+    const apiResponse = await fetchData(apiUrl);
+
+    // TODO: proper error handling
+    this.setState({
+      apiResponse
+    });
   };
 
-  handleAutocompleteResponse = () => {
-    const { autocomplete } = this.state;
+  updateUserGeo = userGeo => {
+    this.setState(
+      {
+        userGeo
+      },
+      () => {
+        this.fetchApiData();
+      }
+    );
+  };
 
+  // Move autocomplete to props
+  handleAutocompleteResponse = autocomplete => {
     autocomplete.addListener("place_changed", () => {
       const place = autocomplete.getPlace();
 
@@ -48,14 +68,7 @@ class DuskToDawn extends Component {
       // are what is needed from the response
       autocomplete.setFields(["geometry"]);
 
-      this.setState(
-        {
-          autocomplete
-        },
-        () => {
-          this.handleAutocompleteResponse();
-        }
-      );
+      this.handleAutocompleteResponse(autocomplete);
     });
   };
 
@@ -72,15 +85,15 @@ class DuskToDawn extends Component {
       } = position;
 
       const userGeo = {
-        latitude,
-        longitude
+        lat: latitude,
+        lng: longitude
       };
 
-      this.updateState("userGeo", userGeo);
+      this.updateUserGeo(userGeo);
     };
 
     const error = err => {
-      console.warn(`ERROR(${err.code}): ${err.message}`);
+      console.warn(`Error: (${err.code}): ${err.message}`);
     };
 
     navigator.geolocation.getCurrentPosition(success, error, options);
@@ -108,9 +121,10 @@ class DuskToDawn extends Component {
 }
 
 DuskToDawn.propTypes = {
-  autocompleteInstance: PropTypes.object,
-  geolocationAvailable: PropTypes.bool,
+  apiResponse: PropTypes.object,
   userGeo: PropTypes.object
 };
 
 export default DuskToDawn;
+
+// Get british summertime
