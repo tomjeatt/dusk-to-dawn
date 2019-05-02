@@ -1,14 +1,16 @@
 import React from "react";
 
 const Input = React.forwardRef((props, ref) => (
-  <div className="input">
+  <div className="component input">
     <button className="geolocate" onClick={props.getLocation}>
       Get current location
     </button>
     <p>Or</p>
-    <label htmlFor="autoComplete">Search for a UK location</label>
+    <label className="input-label" htmlFor="autoComplete">
+      Search for a UK location
+    </label>
     <input
-      className="autocomplete"
+      className="input-field"
       placeholder="Start typing&hellip;"
       name="autocomplete"
       type="text"

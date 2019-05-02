@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import GoogleMapsLoader from "./utilities/google-maps-loader";
 import formatTimestamp from "./utilities/format-timestamp";
 import fetchData from "./utilities/fetch-data";
+import Header from "./components/header";
 import Output from "./components/output";
 import Input from "./components/input";
 import "./dusk-to-dawn.css";
@@ -103,6 +104,7 @@ class DuskToDawn extends Component {
     });
   };
 
+  // TODO: Geolocation response is slow so requires user feedback
   getLocation = () => {
     const options = {
       timeout: 5000,
@@ -141,6 +143,7 @@ class DuskToDawn extends Component {
 
     return (
       <div className="dusk-to-dawn">
+        <Header />
         <Input ref={this.autocompleteField} getLocation={this.getLocation} />
         {output}
       </div>

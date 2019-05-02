@@ -4,7 +4,7 @@ import sunsetIcon from "../assets/icons/sunset.svg";
 
 const Output = props => {
   return (
-    <div className="outputs">
+    <div className="component output">
       <div className="response">
         <section className="response-section">
           <h2 className="response-section-header">Sunrise</h2>

@@ -3,12 +3,35 @@
 :root {
   --orange: rgb(247, 155, 46);
   --workSans: "Work Sans", sans-serif;
+  --componentSpacing: 20px;
 }
 
 .dusk-to-dawn {
   font-family: var(--workSans);
+  margin: 0 auto;
+  text-align: center;
+  width: 95%;
+}
+
+.component {
+  margin-bottom: var(--componentSpacing);
+}
+
+.input-label,
+.input-field {
+  display: block;
+  margin: 0 auto var(--componentSpacing);
+  width: 80%;
 }
 
 .response-section-image {
   width: 100px;
+}
+
+@media screen and (min-width: 600px) {
+  .dusk-to-dawn,
+  .input-label,
+  .input-field {
+    width: 60%;
+  }
 }
