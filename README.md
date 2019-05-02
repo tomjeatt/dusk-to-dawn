@@ -9,13 +9,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Built using
 
-### Libraries
-
 - [Creact React App](http://localhost:3000)
 - [Google Map Places](https://developers.google.com/maps/documentation/javascript/places)
 - [Moment Timezone](https://momentjs.com/timezone/)
 
-### Assets
+## Assets
 
 - Sunrise and sunset icons sunrise by Weltenraser from from [The Noun Project])https://thenounproject.com/weltenraser/)
 - Work Sans font by Wei Huang from [Google Fonts](https://fonts.google.com/specimen/Work+Sans)
