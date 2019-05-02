@@ -1,7 +1,14 @@
+@import url("https://fonts.googleapis.com/css?family=Work+Sans");
+
 :root {
   --orange: rgb(247, 155, 46);
+  --workSans: "Work Sans", sans-serif;
 }
 
 .dusk-to-dawn {
-  background-color: var(--orange);
+  font-family: var(--workSans);
+}
+
+.response-section-image {
+  width: 100px;
 }

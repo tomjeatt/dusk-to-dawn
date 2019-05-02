@@ -2,7 +2,11 @@ import React from "react";
 
 const Input = React.forwardRef((props, ref) => (
   <div className="input">
-    <label htmlFor="autoComplete">Autocomplete</label>
+    <button className="geolocate" onClick={props.getLocation}>
+      Get current location
+    </button>
+    <p>Or</p>
+    <label htmlFor="autoComplete">Search for a UK location</label>
     <input
       className="autocomplete"
       placeholder="Start typing&hellip;"
@@ -10,7 +14,6 @@ const Input = React.forwardRef((props, ref) => (
       type="text"
       ref={ref}
     />
-    <button onClick={props.getLocation}>Get your location</button>
   </div>
 ));
 
