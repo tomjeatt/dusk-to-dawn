@@ -19,7 +19,7 @@
   --white: rgb(255, 255, 255);
   /* layout variables */
   --border: 2px solid var(--grey);
-  --componentSpacing: 20px;
+  --componentSpacing: 24px;
   --inputPadding: 8px 12px;
 }
 
