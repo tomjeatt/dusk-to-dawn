@@ -2,9 +2,25 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## What this app does
 
-1. Connects to Google Places to allow a user to type a location
-2. Takes the location and returns geo data
-3. Uses the geodata to make an API call to the weather API
+1. Gets a user's location or allows a user to type a location.
+2. Returns geo data as a latLng object
+3. Uses the latLng data to make a call to the sunset-sunrise API
+4. Parses the responses to local time and renders sunset and sunrise times in the browser
+
+## Built using
+
+- [Creact React App](http://localhost:3000)
+- [Google Map Places](https://developers.google.com/maps/documentation/javascript/places)
+- [Moment Timezone](https://momentjs.com/timezone/)
+
+Can be used with NPM or Yarn. Built and tested using LTS version of Node (10.15.3).
+
+API data is from [Sunset and sunrise times APU](https://sunrise-sunset.org/api)
+
+## Restrictions
+
+- Google Maps API key is restricted to `localhost`.
+- Search is restricted to UK locations to allow response to be converted to local time.
 
 ## Scripts
 
@@ -22,8 +38,3 @@ Launches the test runner in the interactive watch mode.
 
 Builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
