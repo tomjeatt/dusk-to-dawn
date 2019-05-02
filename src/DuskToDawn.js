@@ -135,10 +135,14 @@ class DuskToDawn extends Component {
   }
 
   render() {
+    const { sunrise, sunset } = this.state;
+    const output =
+      sunrise && sunset ? <Output sunrise={sunrise} sunset={sunset} /> : "";
+
     return (
       <div className="dusk-to-dawn">
         <Input ref={this.autocompleteField} getLocation={this.getLocation} />
-        <Output sunrise={this.state.sunrise} sunset={this.state.sunset} />
+        {output}
       </div>
     );
   }
