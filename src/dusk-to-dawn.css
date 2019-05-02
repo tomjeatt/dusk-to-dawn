@@ -48,7 +48,8 @@ body {
 }
 
 .input-label,
-.input-field {
+.input-field,
+.geolocate-control {
   display: block;
   margin: 0 auto var(--componentSpacing);
   width: 80%;
@@ -63,21 +64,18 @@ body {
   color: var(--grey);
   font: var(--satisfy);
   padding: var(--inputPadding);
-  width: 100%;
 }
 
 .geolocate-control {
   background-color: var(--white);
-  color: var(--grey);
   border: var(--border);
+  color: var(--grey);
   cursor: pointer;
-  display: block;
   font-family: var(--satisfy);
   font-size: 1.2rem;
   padding: var(--inputPadding);
   text-align: center;
   text-decoration: none;
-  width: 100%;
 }
 
 .field-divider {
@@ -91,7 +89,8 @@ body {
 @media screen and (min-width: 600px) {
   .dusk-to-dawn,
   .input-label,
-  .input-field {
+  .input-field,
+  .geolocate-control {
     width: 60%;
   }
 }
