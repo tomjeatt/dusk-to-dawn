@@ -15,12 +15,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Assets
 
-- Sunrise and sunset icons sunrise by Weltenraser from from [The Noun Project])https://thenounproject.com/weltenraser/)
+- Sunrise and sunset icons sunrise by Weltenraser from from [The Noun Project](https://thenounproject.com/weltenraser/)
 - Work Sans font by Wei Huang from [Google Fonts](https://fonts.google.com/specimen/Work+Sans)
 
 Can be used with NPM or Yarn. Built and tested using LTS version of Node (10.15.3).
 
-API data is from [Sunset and sunrise times APU](https://sunrise-sunset.org/api)
+API data is from [Sunset and sunrise times API](https://sunrise-sunset.org/api)
 
 ## Restrictions
 
