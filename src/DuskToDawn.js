@@ -1,25 +1,24 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import GoogleMapsLoader from "./utilities/google-maps-loader";
+import formatTimestamp from "./utilities/format-timestamp";
 import fetchData from "./utilities/fetch-data";
+import Output from "./components/output";
+import Input from "./components/input";
+import "./dusk-to-dawn.css";
 
 class DuskToDawn extends Component {
-  fetchApiData = async () => {
-    const { apiBaseUrl } = this.props;
+  constructor(props) {
+    super(props);
 
-    const {
-      userGeo: { lat, lng }
-    } = this.state;
+    this.state = {
+      sunrise: "",
+      sunset: "",
+      userGeo: {},
+      string: "string"
+    };
 
-    const apiUrl = `${apiBaseUrl}?lat=${lat}&lng=${lng}`;
-
-    const apiResponse = await fetchData(apiUrl);
-
-    // TODO: proper error handling
-    this.setState({
-      apiResponse
-    });
-  };
+    this.autocompleteField = React.createRef();
+  }
 
   updateUserGeo = userGeo => {
     this.setState(
@@ -32,7 +31,38 @@ class DuskToDawn extends Component {
     );
   };
 
-  // Move autocomplete to props
+  handleApiResponse = apiResponse => {
+    const {
+      responseData: {
+        results: { sunrise, sunset },
+        status
+      }
+    } = apiResponse;
+
+    if (status === "OK") {
+      this.setState({
+        sunrise: formatTimestamp(sunrise),
+        sunset: formatTimestamp(sunset)
+      });
+    } else {
+      console.error(`Problem connecting to API, status code ${status}`);
+    }
+  };
+
+  fetchApiData = async () => {
+    const { apiBaseUrl } = this.props;
+
+    const {
+      userGeo: { lat, lng }
+    } = this.state;
+
+    const apiUrl = `${apiBaseUrl}?lat=${lat}&lng=${lng}&formatted=0`;
+
+    const apiResponse = await fetchData(apiUrl);
+
+    this.handleApiResponse(apiResponse);
+  };
+
   handleAutocompleteResponse = autocomplete => {
     autocomplete.addListener("place_changed", () => {
       const place = autocomplete.getPlace();
@@ -47,19 +77,20 @@ class DuskToDawn extends Component {
       // Run geo functions to create latLng object
       const userGeo = { lat: lat(), lng: lng() };
 
-      this.updateState("userGeo", userGeo);
+      this.updateUserGeo(userGeo);
     });
   };
 
-  initialisePlacesApi = () => {
+  initialiseAutocompleteApi = () => {
     GoogleMapsLoader.load(google => {
       const options = {
-        types: ["geocode"]
+        types: ["geocode"],
+        componentRestrictions: { country: ["gb"] }
       };
 
       // autocomplete field set as callback ref
       const autocomplete = new google.maps.places.Autocomplete(
-        this.autocompleteField
+        this.autocompleteField.current
       );
 
       autocomplete.setOptions(options);
@@ -74,7 +105,6 @@ class DuskToDawn extends Component {
 
   getLocation = () => {
     const options = {
-      enableHighAccuracy: true,
       timeout: 5000,
       maximumAge: 0
     };
@@ -92,39 +122,26 @@ class DuskToDawn extends Component {
       this.updateUserGeo(userGeo);
     };
 
-    const error = err => {
-      console.warn(`Error: (${err.code}): ${err.message}`);
+    const error = error => {
+      const { code, message } = error;
+      console.warn(`Unable to get location. Error (${code}): ${message}`);
     };
 
     navigator.geolocation.getCurrentPosition(success, error, options);
   };
 
   componentDidMount() {
-    this.initialisePlacesApi();
+    this.initialiseAutocompleteApi();
   }
 
   render() {
     return (
-      <div className="DuskToDawn">
-        <label htmlFor="autoComplete">Autocomplete</label>
-        <input
-          className="autocomplete"
-          placeholder="type a thing yeah?"
-          name="autocomplete"
-          type="text"
-          ref={ref => (this.autocompleteField = ref)}
-        />
-        <button onClick={this.getLocation}>Get location</button>
+      <div className="dusk-to-dawn">
+        <Input ref={this.autocompleteField} getLocation={this.getLocation} />
+        <Output sunrise={this.state.sunrise} sunset={this.state.sunset} />
       </div>
     );
   }
 }
 
-DuskToDawn.propTypes = {
-  apiResponse: PropTypes.object,
-  userGeo: PropTypes.object
-};
-
 export default DuskToDawn;
-
-// Get british summertime

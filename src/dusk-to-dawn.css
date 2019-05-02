@@ -1,0 +1,7 @@
+:root {
+  --orange: rgb(247, 155, 46);
+}
+
+.dusk-to-dawn {
+  background-color: var(--orange);
+}

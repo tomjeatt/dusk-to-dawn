@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "google-maps": "^3.3.0",
+    "moment-timezone": "^0.5.25",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -11,8 +12,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test"
+    "build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": "react-app"
