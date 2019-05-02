@@ -7,12 +7,12 @@ const Output = props => {
     <div className="component output">
       <div className="response">
         <section className="response-section">
-          <h2 className="response-section-header">Sunrise</h2>
+          <h2 className="response-section-heading">Sunrise</h2>
           <img className="response-section-image" src={sunriseIcon} alt="" />
           <p>{props.sunrise}</p>
         </section>
         <section className="response-section">
-          <h2 className="response-section-header">Sunset</h2>
+          <h2 className="response-section-heading">Sunset</h2>
           <img className="response-section-image" src={sunsetIcon} alt="" />
           <p>{props.sunset}</p>
         </section>

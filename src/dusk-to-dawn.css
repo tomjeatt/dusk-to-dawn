@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Satisfy");
 @import url("https://fonts.googleapis.com/css?family=Work+Sans");
+@import "./styles/reset.css";
 
 :root {
   /* typefaces */
@@ -31,8 +32,13 @@ body {
   font-family: var(--satisfy);
   font-size: 16px;
   margin: 0 auto;
+  padding: 12px 6px;
   text-align: center;
   width: 95%;
+}
+
+.component {
+  margin-bottom: var(--componentSpacing);
 }
 
 .primary-heading {
@@ -41,10 +47,6 @@ body {
 
 .sub-heading {
   font-size: 1.4rem;
-}
-
-.component {
-  margin-bottom: var(--componentSpacing);
 }
 
 .input-label,
@@ -80,10 +82,27 @@ body {
 
 .field-divider {
   font-style: italic;
+  margin-bottom: var(--componentSpacing);
 }
 
+.response {
+  display: flex;
+  justify-content: space-between;
+}
+
+.response-section-heading {
+  font-size: 1.2em;
+  margin-bottom: calc(var(--componentSpacing) / 2);
+}
 .response-section-image {
+  margin-bottom: calc(var(--componentSpacing) / 2);
   width: 100px;
+}
+
+.attribution {
+  border-top: var(--border);
+  margin-top: calc(var(--componentSpacing) * 2);
+  padding-top: 5px;
 }
 
 @media screen and (min-width: 600px) {

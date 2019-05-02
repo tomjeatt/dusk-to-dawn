@@ -107,7 +107,7 @@ class DuskToDawn extends Component {
   // TODO: Geolocation response is slow so requires user feedback
   getLocation = () => {
     const options = {
-      timeout: 5000,
+      timeout: 10000,
       maximumAge: 0
     };
 

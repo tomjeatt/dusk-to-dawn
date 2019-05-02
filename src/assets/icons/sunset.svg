@@ -1,1 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 100" x="0px" y="0px"><title>07_weather_sunset_down</title><g data-name="Layer 2"><rect x="38" y="7" width="4" height="10"/><rect x="16.79" y="15.79" width="4" height="10" transform="translate(-9.2 19.37) rotate(-45)"/><rect x="5" y="40" width="10" height="4"/><rect x="65" y="40" width="10" height="4"/><rect x="56.21" y="18.79" width="10" height="4" transform="translate(3.23 49.37) rotate(-45)"/><rect x="20" y="48" width="40" height="4"/><polygon points="42 67.26 42 55.17 38 55.17 38 67.26 32.47 61.25 29.53 63.96 40 75.35 50.47 63.96 47.53 61.25 42 67.26"/><path d="M27.17,44a13,13,0,1,1,25.66,0h4a17,17,0,1,0-33.74,0Z"/></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 70 68.3" style="enable-background:new 0 0 70 68.3;" xml:space="preserve">
+<title>07_weather_sunset_down</title>
+<g>
+	<rect x="33" width="4" height="10"/>
+	<rect x="11.8" y="8.8" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -5.7087 13.7864)" width="4" height="10"/>
+	<rect y="33" width="10" height="4"/>
+	<rect x="60" y="33" width="10" height="4"/>
+	<rect x="51.2" y="11.8" transform="matrix(0.7071 -0.7071 0.7071 0.7071 6.7142 43.787)" width="10" height="4"/>
+	<rect x="15" y="41" width="40" height="4"/>
+	<polygon points="37,60.3 37,48.2 33,48.2 33,60.3 27.5,54.2 24.5,57 35,68.3 45.5,57 42.5,54.2 	"/>
+	<path d="M22.2,37c-1.2-7.1,3.6-13.8,10.7-14.9c7.1-1.2,13.8,3.6,14.9,10.7c0.2,1.4,0.2,2.8,0,4.2h4c1.2-9.3-5.5-17.8-14.8-19
+		c-9.3-1.2-17.8,5.5-19,14.8c-0.2,1.4-0.2,2.8,0,4.2H22.2z"/>
+</g>
+</svg>
