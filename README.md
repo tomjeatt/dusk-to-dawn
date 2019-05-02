@@ -35,6 +35,10 @@ In the project directory, you can run:
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+### `yarn start-secure`
+
+As above, but using `https`. Will warn user before opening site. Required to use geolocation in browsers (e.g. Safari) which don't privilege `localhost`.
+
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode.
