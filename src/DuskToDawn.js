@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import GoogleMapsLoader from "./utilities/google-maps-loader";
 import formatTimestamp from "./utilities/format-timestamp";
 import fetchData from "./utilities/fetch-data";
@@ -13,8 +14,7 @@ class DuskToDawn extends Component {
     this.state = {
       sunrise: "",
       sunset: "",
-      userGeo: {},
-      string: "string"
+      userGeo: {}
     };
 
     this.autocompleteField = React.createRef();
@@ -143,5 +143,11 @@ class DuskToDawn extends Component {
     );
   }
 }
+
+DuskToDawn.propTypes = {
+  sunrise: PropTypes.string,
+  sunset: PropTypes.string,
+  userGeo: PropTypes.object
+};
 
 export default DuskToDawn;
