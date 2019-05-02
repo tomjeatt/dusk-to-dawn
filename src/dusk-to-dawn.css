@@ -1,16 +1,46 @@
+@import url("https://fonts.googleapis.com/css?family=Satisfy");
 @import url("https://fonts.googleapis.com/css?family=Work+Sans");
 
 :root {
-  --orange: rgb(247, 155, 46);
-  --workSans: "Work Sans", sans-serif;
+  /* typefaces */
+  --satisfy: "Satisfy", cursive;
+  --workSans: "Work sans", sans-serif;
+  /* theme colours */
+  --sunsetPink: rgb(250, 112, 154);
+  --sunriseYellow: rgb(254, 225, 64);
+  --sunsetGradient: linear-gradient(
+    to right,
+    var(--sunsetPink) 0%,
+    var(--sunriseYellow) 100%
+  );
+  /* neutral colours */
+  --grey: rgb(68, 68, 68);
+  --white: rgb(255, 255, 255);
+  /* layout variables */
+  --border: 2px solid var(--grey);
   --componentSpacing: 20px;
+  --inputPadding: 8px 12px;
+}
+
+body {
+  background-image: var(--sunsetGradient);
 }
 
 .dusk-to-dawn {
-  font-family: var(--workSans);
+  color: var(--grey);
+  font-family: var(--satisfy);
+  font-size: 16px;
   margin: 0 auto;
   text-align: center;
   width: 95%;
+}
+
+.primary-heading {
+  font-size: 1.8rem;
+}
+
+.sub-heading {
+  font-size: 1.4rem;
 }
 
 .component {
@@ -22,6 +52,36 @@
   display: block;
   margin: 0 auto var(--componentSpacing);
   width: 80%;
+}
+
+.input-label {
+  font-size: 1.2em;
+}
+
+.input-field {
+  border: var(--border);
+  color: var(--grey);
+  font: var(--satisfy);
+  padding: var(--inputPadding);
+  width: 100%;
+}
+
+.geolocate-control {
+  background-color: var(--white);
+  color: var(--grey);
+  border: var(--border);
+  cursor: pointer;
+  display: block;
+  font-family: var(--satisfy);
+  font-size: 1.2rem;
+  padding: var(--inputPadding);
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+}
+
+.field-divider {
+  font-style: italic;
 }
 
 .response-section-image {
